@@ -11,7 +11,9 @@ services:
     - "5432"
 
     volumes:
-    - KTPPROJ:/var/lib/postgresql/data
+    - server:/var/lib/postgresql/data
+    - ./init_data:/docker-entrypoint-initdb.d
+    
 
-volumes:
-  KTPPROJ:
+volumes: 
+  server:

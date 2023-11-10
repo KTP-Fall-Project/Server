@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS members CASCADE;
 
 CREATE TABLE members (
-    indentikey BIGINT NOT NULL PRIMARY KEY,
+    identikey BIGINT NOT NULL PRIMARY KEY,
     firstName VARCHAR(100) NOT NULL,
     lastName VARCHAR(100) NOT NULL,
     nickName VARCHAR(100),
@@ -14,7 +14,7 @@ DROP TABLE IF EXISTS events CASCADE;
 CREATE TABLE events (
     id BIGINT NOT NULL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
-    description TEXT(200),
+    description TEXT,
     pointsWorth BIGINT
 
 );
@@ -34,8 +34,8 @@ DROP TABLE IF EXISTS projects CASCADE;
 CREATE TABLE projects(
     id BIGINT NOT NULL PRIMARY KEY,
     numMembers BIGINT NOT NULL,
-    deadline DATE(10),
-    description TEXT(100) 
+    deadline DATE,
+    description TEXT
 );
 
 DROP TABLE IF EXISTS points CASCADE;
@@ -56,10 +56,10 @@ DROP TABLE IF EXISTS memberdata CASCADE;
 
 CREATE TABLE memberdata(
     id BIGINT NOT NULL PRIMARY KEY,
-    membertype CHAR(),
-    birthday DATE(10),
-    graduationDate DATE(10),
-    pledgeclass DATE(10),
+    membertype CHAR(1),
+    birthday DATE,
+    graduationDate DATE,
+    pledgeclass DATE,
     major VARCHAR(100),
     member_id BIGINT NOT NULL, 
     group_id BIGINT NOT NULL,
