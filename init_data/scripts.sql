@@ -1,5 +1,4 @@
 DROP TABLE IF EXISTS members CASCADE;
-
 CREATE TABLE members (
     identikey BIGINT NOT NULL PRIMARY KEY,
     firstName VARCHAR(100) NOT NULL,
@@ -10,17 +9,14 @@ CREATE TABLE members (
 );
 
 DROP TABLE IF EXISTS events CASCADE;
-
 CREATE TABLE events (
     id BIGINT NOT NULL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     description TEXT,
     pointsWorth BIGINT
-
 );
 
 DROP TABLE IF EXISTS members_to_events CASCADE;
-
 CREATE TABLE members_to_events(
     members_id BIGINT NOT NULL,
     events_id BIGINT NOT NULL,
@@ -28,20 +24,16 @@ CREATE TABLE members_to_events(
     FOREIGN KEY (events_id)  REFERENCES events (id)
 );
 
-
 DROP TABLE IF EXISTS projects CASCADE;
-
 CREATE TABLE projects(
     id BIGINT NOT NULL PRIMARY KEY,
     numMembers BIGINT NOT NULL,
-    deadline DATE,
-    description TEXT
+    deadline DATE NOT NULL,
+    description TEXT NOT NULL
 );
 
 DROP TABLE IF EXISTS points CASCADE;
-
 CREATE TABLE points(
-
     id BIGINT NOT NULL PRIMARY KEY,
     coffeechats BIGINT NOT NULL,
     events BIGINT NOT NULL,
@@ -49,11 +41,9 @@ CREATE TABLE points(
     total BIGINT NOT NULL,
     pledge_id BIGINT NOT NULL,
     FOREIGN KEY (pledge_id) REFERENCES members (identikey)
-
 );
 
 DROP TABLE IF EXISTS memberdata CASCADE;
-
 CREATE TABLE memberdata(
     id BIGINT NOT NULL PRIMARY KEY,
     membertype CHAR(1),
@@ -69,11 +59,8 @@ CREATE TABLE memberdata(
     FOREIGN KEY (points_id) REFERENCES points (id)
 );
 
-
 DROP TABLE IF EXISTS coffeechats CASCADE;
-
-CREATE TABLE cofeechats(
-
+CREATE TABLE coffeechats(
     id BIGINT NOT NULL PRIMARY KEY,
     execName VARCHAR(100) NOT NULL,
     pledgeName VARCHAR(100) NOT NULL,
