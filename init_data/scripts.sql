@@ -15,7 +15,7 @@ CREATE TABLE events (
     time DATE NOT NULL,
     required BOOLEAN NOT NULL,
     event_type VARCHAR(100) NOT NULL,
-    description TEXT NOT NULL,
+    description TEXT,
     pointsWorth BIGINT NOT NULL
 );
 
