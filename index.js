@@ -37,8 +37,8 @@ app.listen(port, async () => {
         );
 
         await db.any(
-            `INSERT INTO memberdata (id, membertype, birthday, graduationDate, pledgeClass, major, member_id, group_id, points_id)
-            VALUES (1, 'P', '2003-11-13', '2026-05-10', 'Alpha', 'Computer Science', 'maka2202', 1, 1);`
+            `INSERT INTO memberdata (id, picture, membertype, birthday, graduationDate, pledgeClass, major, member_id, group_id, points_id)
+            VALUES (1, 'example.jpg', 'P', '2003-11-13', '2026-05-10', 'Alpha', 'Computer Science', 'maka2202', 1, 1);`
         );
 
         console.log("Insert successful");

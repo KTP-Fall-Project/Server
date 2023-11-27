@@ -12,8 +12,11 @@ DROP TABLE IF EXISTS events CASCADE;
 CREATE TABLE events (
     id BIGINT NOT NULL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
-    description TEXT,
-    pointsWorth BIGINT
+    time DATE NOT NULL,
+    required BOOLEAN NOT NULL,
+    event_type VARCHAR(100) NOT NULL,
+    description TEXT NOT NULL,
+    pointsWorth BIGINT NOT NULL
 );
 
 DROP TABLE IF EXISTS members_to_events CASCADE;
@@ -46,14 +49,16 @@ CREATE TABLE points(
 DROP TABLE IF EXISTS memberdata CASCADE;
 CREATE TABLE memberdata(
     id BIGINT NOT NULL PRIMARY KEY,
-    membertype CHAR(1),
-    birthday DATE,
-    graduationDate DATE,
-    pledgeclass VARCHAR(100),
-    major VARCHAR(100),
+    picture VARCHAR(100),
+    membertype CHAR(1) NOT NULL,
+    birthday DATE NOT NULL,
+    graduationDate DATE NOT NULL,
+    pledgeclass VARCHAR(100) NOT NULL,
+    major VARCHAR(100) NOT NULL,
+    minor VARCHAR(100),
     member_id VARCHAR(100) NOT NULL, 
-    group_id BIGINT NOT NULL,
-    points_id BIGINT NOT NULL,
+    group_id BIGINT,
+    points_id BIGINT,
     FOREIGN KEY (member_id) REFERENCES members (identikey),
     FOREIGN KEY (group_id) REFERENCES projects (id),
     FOREIGN KEY (points_id) REFERENCES points (id)
