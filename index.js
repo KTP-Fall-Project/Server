@@ -29,8 +29,8 @@ app.listen(port, async () => {
 
         // points insert
         await db.any(
-            `INSERT INTO points (id, coffeechats, events, projectGrade, total, pledge_id)
-            VALUES (1, 8, 10, 85, 103, 'maka2202');`
+            `INSERT INTO points (id, coffeechats, events, projectGrade, total)
+            VALUES (1, 8, 10, 85, 103);`
         );
 
         // projects insert

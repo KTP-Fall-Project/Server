@@ -41,9 +41,7 @@ CREATE TABLE points(
     coffeechats BIGINT NOT NULL,
     events BIGINT NOT NULL,
     projectGrade BIGINT NOT NULL,
-    total BIGINT NOT NULL,
-    pledge_id VARCHAR(100) NOT NULL,
-    FOREIGN KEY (pledge_id) REFERENCES members (identikey)
+    total BIGINT NOT NULL
 );
 
 DROP TABLE IF EXISTS memberdata CASCADE;
